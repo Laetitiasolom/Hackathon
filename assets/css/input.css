@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Nordic Theme Base */
+  [data-theme='nordic'] {
+    --global-bg-color: #ECF0F1;
+    --global-code-bg-color: #DADFE1;
+    --global-text-color: #2C3E50;
+    --global-primary-color: #3498DB;
+    --global-link-color: #F39C12;
+    --global-hover-color: #3498DB;
+    --global-theme-color: #2980B9;
+  }
+
+  [data-theme='nordic'] body {
+    @apply bg-nordic-clouds bg-cover bg-fixed text-nordic-text font-youth;
+  }
+
+  [data-theme='nordic'] h1,
+  [data-theme='nordic'] h2,
+  [data-theme='nordic'] h3,
+  [data-theme='nordic'] h4,
+  [data-theme='nordic'] h5,
+  [data-theme='nordic'] h6 {
+    @apply font-youth text-nordic-header;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  [data-theme='nordic'] .masthead {
+    @apply bg-nordic-header text-white shadow-lg border-b-4 border-nordic-accent;
+  }
+
+  [data-theme='nordic'] .masthead a {
+    @apply text-white hover:text-nordic-pop transition-colors duration-300;
+  }
+
+  [data-theme='nordic'] .masthead__menu-item {
+    background-color: transparent;
+  }
+
+  [data-theme='nordic'] .btn {
+    @apply bg-nordic-accent text-white rounded-xl shadow-md hover:bg-slate-600 transition-all font-youth uppercase tracking-wider;
+    box-shadow: none;
+  }
+
+  [data-theme='nordic'] .btn:active {
+    transform: scale(0.98);
+  }
+
+  [data-theme='nordic'] .page__footer {
+    @apply bg-slate-800 text-white mt-12 py-8 border-t-8 border-nordic-pop;
+  }
+
+  /* Interactive Elements "Eye Twinkle" */
+  .btn-bounce {
+    @apply transition-transform duration-150 active:scale-95 ease-out;
+  }
+
+  .card-float {
+    @apply transition-transform duration-300 hover:-translate-y-1 ease-out;
+  }
+}

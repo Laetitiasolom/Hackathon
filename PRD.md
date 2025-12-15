@@ -90,13 +90,12 @@ A custom-built, minimalist portfolio website that transforms static academic art
 
 | Component | Technology |
 |--------|------------|
-| Frontend | React + Vite |
-| Styling | Tailwind CSS |
-| Animation | Framer Motion |
-| Routing | React Router |
-| Deployment | Vercel or GitHub Pages |
+| Frontend | Jekyll (Ruby) |
+| Styling | Tailwind CSS (Standalone CLI) |
+| Animation | Vanilla CSS Transitions + JS |
+| Deployment | GitHub Pages |
 
-**Rationale:** This stack supports fast iteration, interactive UI patterns, and a highly controlled visual system aligned with minimalist design goals.
+**Rationale:** This stack maintains the "Jekyll-only" constraint while enabling modern styling via Tailwind and performance interactions via lightweight CSS/JS.
 
 ---
 
@@ -104,62 +103,29 @@ A custom-built, minimalist portfolio website that transforms static academic art
 
 ### Module 1: The Nordic Hero (Landing Page)
 **Priority:** P0
-
-**User Story:** As a visitor, I want to immediately understand who Laetitia is and her design philosophy, so I can quickly assess fit.
-
-**Acceptance Criteria:**
-- Displays profile image with modern circular crop
-- Headline communicates international and precision-driven design
-- Primary CTA: “View Work” using dark green accent color
-
----
+**Tech:** HTML/Liquid + Tailwind
+- Profile image with crop
+- Headline
+- "View Work" CTA (Green #15803D)
 
 ### Module 2: Interactive Portfolio Gallery
 **Priority:** P0
-
-**User Story:** As a recruiter, I want to filter projects by UX or Graphic Design so I can focus on what’s relevant.
-
-**Acceptance Criteria:**
-- Filter controls: All / UX Design / Graphic Design
-- Responsive grid layout of project cards
-- Subtle hover animations (elevation or opacity shift)
-- Keyboard-accessible filtering controls
-
----
+**Tech:** HTML/Liquid + Standard Jekyll Collections
+- Filter controls: All / UX / Graphic (Implemented via Isotope or simple JS filtering)
+- Hover animations: CSS `transform: translateY(-5px)`
 
 ### Module 3: Accessible CV
 **Priority:** P1
-
-**User Story:** As a hiring manager, I want to scan education and skills without downloading a PDF.
-
-**Acceptance Criteria:**
-- Semantic sections for Education and Experience
-- Optional “Download PDF” button for official CV
-- Visual differentiation for tools and skills (e.g. structured lists or bars)
-
----
+**Tech:** Standard Markdown/HTML
 
 ### Module 4: Interactive Paper
 **Priority:** P1
-
-**User Story:** As an academic peer, I want to read research content comfortably without relying on PDF embeds.
-
-**Acceptance Criteria:**
-- Dedicated page for selected paper or thesis
-- Readability-optimized typography (e.g. Inter or similar sans-serif)
-- Inline images and figures integrated with text flow
+**Tech:** Standard Markdown Layouts
 
 ---
 
 ## 6. AI Design & Prompting Strategy
-
-### System Prompt
-“You are an expert senior frontend developer specializing in minimalist Scandinavian design. You prioritize clean code, semantic HTML, accessibility, and vibe-driven interaction design.”
-
-### Reliability & Safety
-- All content sourced from a static data file (e.g. data.js)
-- No AI-generated dates, roles, or credentials
-- AI used as an implementation assistant, not a content author
+**Constraint:** Do not introduce React, Webpack, or complex bundlers. Output compliant Jekyll includes and assets.
 
 ---
 
@@ -225,4 +191,7 @@ A custom-built, minimalist portfolio website that transforms static academic art
 ### Maintenance
 - Manual content updates
 - Periodic accessibility and dependency reviews
+
+I am working on a Jekyll site (Academic Pages). 
+Do not introduce new frameworks or JavaScript libraries. Modify only existing layouts, includes, Markdown, or CSS.” This avoids breaking the build. 
 

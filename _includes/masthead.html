@@ -2,25 +2,54 @@
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
+    <div class="masthead__menu flex items-center justify-between w-full">
+      <nav id="site-nav" class="greedy-nav flex-grow">
         <button><span class="navicon"></span></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">{{ site.title }}</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg persist"><a href="{{ base_path }}/">{{ site.title
+              }}</a></li>
           {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-            {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+          {% if link.url contains 'http' %}
+          {% assign domain = '' %}
+          {% else %}
+          {% assign domain = base_path %}
+          {% endif %}
+          <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
-          <li id="theme-toggle" class="masthead__menu-item persist tail">
-            <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
-          </li>
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
+      <div class="theme-toggle-container relative z-50 ml-4 group">
+        <button id="theme-toggle-btn"
+          class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+          aria-label="Theme Toggle">
+          <i class="fa-solid fa-wand-magic-sparkles text-nordic-accent" aria-hidden="true"></i>
+        </button>
+        <!-- Dropdown Menu -->
+        <div
+          class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden transform group-hover:translate-y-0 translate-y-2">
+          <ul class="flex flex-col py-1 text-sm font-medium">
+            <li>
+              <button onclick="setTheme('light')"
+                class="w-full text-left px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                <i class="fa-solid fa-sun text-orange-400"></i> Light
+              </button>
+            </li>
+            <li>
+              <button onclick="setTheme('dark')"
+                class="w-full text-left px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                <i class="fa-solid fa-moon text-indigo-400"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button onclick="setTheme('nordic')"
+                class="w-full text-left px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                <i class="fa-solid fa-tree text-nordic-accent"></i> Nordic
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
